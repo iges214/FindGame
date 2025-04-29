@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gameFind</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+
+        <div class="timer">Time Left: <span id="time">60</span>s</div>
+        <div class="message" id="messageBox"></div>
+
+        <ul class="items">
+            <li class="item">
+                <div class="back-view card">
+                    <img src="image/img-1.png">
+                </div>
+                <div class="front-view card">
+                    <span>?</span>
+                </div>
+            </li >
+            <li class="item">
+                <div class="back-view card">
+                    <img src="image/img-2.png">
+                </div>
+                <div class="front-view card">
+                    <span>?</span>
+                </div>
+            </li >
+            <li class="item">
+                <div class="back-view card">
+                    <img src="image/img-3.png">
+                </div>
+                <div class="front-view card">
+                    <span>?</span>
+                </div>
+            </li>
+            <li class="item">
+                <div class="back-view card">
+                    <img src="image/img-4.png">
+                </div>
+                <div class="front-view card">
+                    <span>?</span>
+                </div>
+            </li>
+            <li class="item">
+                <div class="back-view card">
+                    <img src="image/img-5.png">
+                </div>
+                <div class="front-view card">
+                    <span>?</span>
+                </div>
+            </li>
+            <li class="item">
+                <div class="back-view card">
+                    <img src="image/img-6.png">
+                </div>
+                <div class="front-view card">
+                    <span>?</span>
+                </div>
+            </li>
+            <li class="item">
+                <div class="back-view card">
+                    <img src="image/img-7.png">
+                </div>
+                <div class="front-view card">
+                    <span>?</span>
+                </div>
+            </li>
+            <li class="item">
+                <div class="back-view card">
+                    <img src="image/img-8.png">
+                </div>
+                <div class="front-view card">
+                    <span>?</span>
+                </div>
+            </li>
+            <li class="item">
+                <div class="back-view card">
+                    <img src="image/img-1.png">
+                </div>
+                <div class="front-view card">
+                    <span>?</span>
+                </div>
+            </li >
+            <li class="item">
+                <div class="back-view card">
+                    <img src="image/img-2.png">
+                </div>
+                <div class="front-view card">
+                    <span>?</span>
+                </div>
+            </li >
+            <li class="item">
+                <div class="back-view card">
+                    <img src="image/img-3.png">
+                </div>
+                <div class="front-view card">
+                    <span>?</span>
+                </div>
+            </li>
+            <li class="item">
+                <div class="back-view card">
+                    <img src="image/img-4.png">
+                </div>
+                <div class="front-view card">
+                    <span>?</span>
+                </div>
+            </li>
+            <li class="item">
+                <div class="back-view card">
+                    <img src="image/img-5.png">
+                </div>
+                <div class="front-view card">
+                    <span>?</span>
+                </div>
+            </li>
+            <li class="item">
+                <div class="back-view card">
+                    <img src="image/img-6.png">
+                </div>
+                <div class="front-view card">
+                    <span>?</span>
+                </div>
+            </li>
+            <li class="item">
+                <div class="back-view card">
+                    <img src="image/img-7.png">
+                </div>
+                <div class="front-view card">
+                    <span>?</span>
+                </div>
+            </li>
+            <li class="item">
+                <div class="back-view card">
+                    <img src="image/img-8.png">
+                </div>
+                <div class="front-view card">
+                    <span>?</span>
+                </div>
+            </li>
+        </ul>
+        
+        <div class="controls">
+            <button id="startBtn">Start</button>
+            <button id="restartBtn">Restart</button>
+        </div>
+        
+    </div>
+
+    <div class="modal" id="timesUpModal">
+        <div class="modal-content">
+          <h2>⏰ Time's up!</h2>
+          <button id="modalRestart">Play Again</button>
+        </div>
+    </div>
+
+    <div class="modal" id="winModal">
+        <div class="modal-content">
+          <h2>🎉 You Win!</h2>
+          <div class="modal-buttons">
+            <button id="exitBtn">Exit</button>
+            <button id="winReplayBtn">Play Again</button>
+          </div>
+        </div>
+    </div>
+      
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="js/min.js"></script>
+</body>
+</html>
