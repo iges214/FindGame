@@ -193,7 +193,7 @@ li{
 }
 
 #modalRestart:hover {
-    background-color: #800020;
+    background-color: #940126;
 }
 
 /* you win part */
@@ -225,7 +225,7 @@ li{
 }
 
 #exitBtn:hover {
-    background-color: #bbb;
+    background-color: #f7bbbb;
 }
 
 #winReplayBtn {
@@ -234,7 +234,7 @@ li{
 }
 
 #winReplayBtn:hover {
-    background-color: #006600;
+    background-color: #03d403;
 }
 
 
