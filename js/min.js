@@ -182,7 +182,7 @@
 // shuffleItems();
 // startTimer();
 
-/*
+
 const list = document.querySelectorAll(".item");
 const timeTag = document.getElementById("time");
 const startBtn = document.getElementById("startBtn");
@@ -353,4 +353,3 @@ winReplayBtn.addEventListener("click", () => {
 
 // Optional: shuffle initially but don't start timer
 list.forEach(item => item.addEventListener("click", flipedItem));
-*/
