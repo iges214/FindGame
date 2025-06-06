@@ -1,173 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FindGame</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <div class="container">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CardGame</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- User Setup Modal -->
+    <div id="userSetupModal" class="modal1">
+      <div class="modal1-content">
+        <h4>Username:</h4>
+        <input type="text" id="usernameInput" placeholder="Enter your name" />
 
-        <div class="timer">Time Left: <span id="time">60</span>s</div>
-        <div class="message" id="messageBox"></div>
-
-        <ul class="items">
-            <li class="item">
-                <div class="back-view card">
-                    <img src="image/img-1.png">
-                </div>
-                <div class="front-view card">
-                    <span>?</span>
-                </div>
-            </li >
-            <li class="item">
-                <div class="back-view card">
-                    <img src="image/img-2.png">
-                </div>
-                <div class="front-view card">
-                    <span>?</span>
-                </div>
-            </li >
-            <li class="item">
-                <div class="back-view card">
-                    <img src="image/img-3.png">
-                </div>
-                <div class="front-view card">
-                    <span>?</span>
-                </div>
-            </li>
-            <li class="item">
-                <div class="back-view card">
-                    <img src="image/img-4.png">
-                </div>
-                <div class="front-view card">
-                    <span>?</span>
-                </div>
-            </li>
-            <li class="item">
-                <div class="back-view card">
-                    <img src="image/img-5.png">
-                </div>
-                <div class="front-view card">
-                    <span>?</span>
-                </div>
-            </li>
-            <li class="item">
-                <div class="back-view card">
-                    <img src="image/img-6.png">
-                </div>
-                <div class="front-view card">
-                    <span>?</span>
-                </div>
-            </li>
-            <li class="item">
-                <div class="back-view card">
-                    <img src="image/img-7.png">
-                </div>
-                <div class="front-view card">
-                    <span>?</span>
-                </div>
-            </li>
-            <li class="item">
-                <div class="back-view card">
-                    <img src="image/img-8.png">
-                </div>
-                <div class="front-view card">
-                    <span>?</span>
-                </div>
-            </li>
-            <li class="item">
-                <div class="back-view card">
-                    <img src="image/img-1.png">
-                </div>
-                <div class="front-view card">
-                    <span>?</span>
-                </div>
-            </li >
-            <li class="item">
-                <div class="back-view card">
-                    <img src="image/img-2.png">
-                </div>
-                <div class="front-view card">
-                    <span>?</span>
-                </div>
-            </li >
-            <li class="item">
-                <div class="back-view card">
-                    <img src="image/img-3.png">
-                </div>
-                <div class="front-view card">
-                    <span>?</span>
-                </div>
-            </li>
-            <li class="item">
-                <div class="back-view card">
-                    <img src="image/img-4.png">
-                </div>
-                <div class="front-view card">
-                    <span>?</span>
-                </div>
-            </li>
-            <li class="item">
-                <div class="back-view card">
-                    <img src="image/img-5.png">
-                </div>
-                <div class="front-view card">
-                    <span>?</span>
-                </div>
-            </li>
-            <li class="item">
-                <div class="back-view card">
-                    <img src="image/img-6.png">
-                </div>
-                <div class="front-view card">
-                    <span>?</span>
-                </div>
-            </li>
-            <li class="item">
-                <div class="back-view card">
-                    <img src="image/img-7.png">
-                </div>
-                <div class="front-view card">
-                    <span>?</span>
-                </div>
-            </li>
-            <li class="item">
-                <div class="back-view card">
-                    <img src="image/img-8.png">
-                </div>
-                <div class="front-view card">
-                    <span>?</span>
-                </div>
-            </li>
-        </ul>
-        
-        <div class="controls">
-            <button id="startBtn">Start</button>
-            <button id="restartBtn">Restart</button>
+        <div id="avatarSelection">
+          <div>
+            <h4>Select Avatar👇</h4>
+            <img src="avatars/avatar1.png" class="avatar-option" />
+            <img src="avatars/avatar2.png" class="avatar-option" />
+          </div>
         </div>
-        
+
+        <div class="profileSavebtn">
+          <div class="child">
+            <button id="exitprofilebtn">close</button>
+            <button id="saveUserBtn">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- main container -->
+    <div class="container">
+      <!-- Header -->
+      <div class="header">
+        <h1 id="welcomeMessage"></h1>
+        <div class="imgbutton">
+          <img id="playerAvatar" src="" alt="Avatar" />
+          <div class="headerbtn">
+            <button id="changeUserBtn">Change Name</button>
+            <!-- <button id="bestTimeBtn">Best Time: n/a</button> -->
+            <div id="bestTimeDisplay">Best Time: --:--</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- timeer and message btn -->
+      <div class="timer">Time Left: <span id="time">60</span>s</div>
+      <div class="message" id="messageBox"></div>
+
+      <!-- list/items-->
+      <ul class="items">
+        <li class="item">
+          <div class="back-view card">
+            <img src="image/img-1.png" />
+          </div>
+          <div class="front-view card">
+            <span>?</span>
+          </div>
+        </li>
+        <li class="item">
+          <div class="back-view card">
+            <img src="image/img-2.png" />
+          </div>
+          <div class="front-view card">
+            <span>?</span>
+          </div>
+        </li>
+        <li class="item">
+          <div class="back-view card">
+            <img src="image/img-3.png" />
+          </div>
+          <div class="front-view card">
+            <span>?</span>
+          </div>
+        </li>
+        <li class="item">
+          <div class="back-view card">
+            <img src="image/img-4.png" />
+          </div>
+          <div class="front-view card">
+            <span>?</span>
+          </div>
+        </li>
+        <li class="item">
+          <div class="back-view card">
+            <img src="image/img-5.png" />
+          </div>
+          <div class="front-view card">
+            <span>?</span>
+          </div>
+        </li>
+        <li class="item">
+          <div class="back-view card">
+            <img src="image/img-6.png" />
+          </div>
+          <div class="front-view card">
+            <span>?</span>
+          </div>
+        </li>
+        <li class="item">
+          <div class="back-view card">
+            <img src="image/img-7.png" />
+          </div>
+          <div class="front-view card">
+            <span>?</span>
+          </div>
+        </li>
+        <li class="item">
+          <div class="back-view card">
+            <img src="image/img-8.png" />
+          </div>
+          <div class="front-view card">
+            <span>?</span>
+          </div>
+        </li>
+        <li class="item">
+          <div class="back-view card">
+            <img src="image/img-1.png" />
+          </div>
+          <div class="front-view card">
+            <span>?</span>
+          </div>
+        </li>
+        <li class="item">
+          <div class="back-view card">
+            <img src="image/img-2.png" />
+          </div>
+          <div class="front-view card">
+            <span>?</span>
+          </div>
+        </li>
+        <li class="item">
+          <div class="back-view card">
+            <img src="image/img-3.png" />
+          </div>
+          <div class="front-view card">
+            <span>?</span>
+          </div>
+        </li>
+        <li class="item">
+          <div class="back-view card">
+            <img src="image/img-4.png" />
+          </div>
+          <div class="front-view card">
+            <span>?</span>
+          </div>
+        </li>
+        <li class="item">
+          <div class="back-view card">
+            <img src="image/img-5.png" />
+          </div>
+          <div class="front-view card">
+            <span>?</span>
+          </div>
+        </li>
+        <li class="item">
+          <div class="back-view card">
+            <img src="image/img-6.png" />
+          </div>
+          <div class="front-view card">
+            <span>?</span>
+          </div>
+        </li>
+        <li class="item">
+          <div class="back-view card">
+            <img src="image/img-7.png" />
+          </div>
+          <div class="front-view card">
+            <span>?</span>
+          </div>
+        </li>
+        <li class="item">
+          <div class="back-view card">
+            <img src="image/img-8.png" />
+          </div>
+          <div class="front-view card">
+            <span>?</span>
+          </div>
+        </li>
+      </ul>
+
+      <div class="controls">
+        <button id="startBtn">Start</button>
+        <button id="restartBtn">Restart</button>
+      </div>
     </div>
 
     <div class="modal" id="timesUpModal">
-        <div class="modal-content">
-          <h2>⏰ Time's up!</h2>
-          <button id="modalRestart">Play Again</button>
-        </div>
+      <div class="modal-content">
+        <h2>⏰ Time's up!</h2>
+        <button id="modalRestart">Play Again</button>
+      </div>
     </div>
 
     <div class="modal" id="winModal">
-        <div class="modal-content">
-          <h2>🎉 You Win!</h2>
-          <div class="modal-buttons">
-            <button id="exitBtn">Exit</button>
-            <button id="winReplayBtn">Play Again</button>
-          </div>
+      <div class="modal-content">
+        <h2>🎉 You Win!</h2>
+        <div class="modal-buttons">
+          <button id="exitBtn">Exit</button>
+          <button id="winReplayBtn">Play Again</button>
         </div>
+      </div>
     </div>
-      
+
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script src="js/min.js"></script>
-</body>
+  </body>
 </html>
