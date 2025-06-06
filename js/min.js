@@ -255,6 +255,12 @@ const showMessage = (msg, color = "red") => {
 
 // Event listeners
 startBtn.addEventListener("click", () => {
+  let listItems = document.getElementById("gameicons");
+  listItems.classList.remove("dnone");
+  startBtn.style.display = "none";
+  setTimeout(() => {
+    listItems.classList.add("show");
+  }, 10);
   shuffleItems();
 });
 
