@@ -408,6 +408,12 @@ li {
     width: 80vw;
   }
 }
+@media screen and (max-width: 1100px) {
+  .container {
+    width: 90vw;
+    height: 90vh;
+  }
+}
 
 #ExitGame div {
   width: 100%;

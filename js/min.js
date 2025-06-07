@@ -19,6 +19,9 @@ const saveUserBtn = document.getElementById("saveUserBtn");
 const closebtn = document.getElementById("exitprofilebtn");
 const welcomeMessage = document.getElementById("welcomeMessage");
 const playerAvatar = document.getElementById("playerAvatar");
+const nobtn = document.getElementById("no");
+const yesbtn = document.getElementById("yes");
+const exithome = document.getElementById("exitModal");
 
 let itemOne = (itemTwo = "");
 let matcheditem = 0;
@@ -273,15 +276,20 @@ startBtn.addEventListener("click", () => {
   }, 10);
   shuffleItems();
 });
-
-exitHomebtn.addEventListener("click", () => {
+yesbtn.addEventListener("click", () => {
   let exitgame = document.getElementById("ExitGame");
   let closecontainer = document.getElementById("containerid");
   gameStarted = false;
   closecontainer.classList.add("dnone");
   exitgame.classList.remove("dnone");
+  exithome.style.display = "none";
 });
-//
+exitHomebtn.addEventListener("click", () => {
+  document.getElementById("exitModal").style.display = "flex";
+});
+nobtn.addEventListener("click", () => {
+  exithome.style.display = "none";
+});
 
 exitBtn.addEventListener("click", () => {
   winModal.style.display = "none";
