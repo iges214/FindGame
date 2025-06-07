@@ -36,7 +36,7 @@
     </div>
 
     <!-- main container -->
-    <div class="container">
+    <div class="container" id="containerid">
       <!-- Header -->
       <div class="header">
         <h1 id="welcomeMessage"></h1>
@@ -186,9 +186,25 @@
         </li>
       </ul>
 
-      <div class="controls">
+      <div class="controls" id="controlsid">
         <button id="startBtn">Start</button>
         <button id="restartBtn">Restart</button>
+        <button id="exitHomeBtn">Exit</button>
+      </div>
+    </div>
+
+    <div class="container dnone" id="ExitGame">
+      <div style="color: #500215">
+        <h1>Goodbye👋</h1>
+        <br />
+        <p style="font-size: 10px">
+          “You've exited the app. You can close this tab anytime.”
+        </p>
+        <br />
+        <p style="font-size: 15px; padding: 20px">
+          your datas are saved, you can come back anytime to beat your current
+          high score💪
+        </p>
       </div>
     </div>
 
@@ -198,6 +214,14 @@
         <button id="modalRestart">Play Again</button>
       </div>
     </div>
+
+    <!-- <div class="modal dnone" id="exitModal">
+      <div class="modal-content">
+        <h2>do you want to exit the app?</h2>
+        <button id="yes">YES</button>
+        <button id="no">NO</button>
+      </div>
+    </div> -->
 
     <div class="modal" id="winModal">
       <div class="modal-content">

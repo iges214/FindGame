@@ -2,6 +2,7 @@ const list = document.querySelectorAll(".item");
 const timeTag = document.getElementById("time");
 const startBtn = document.getElementById("startBtn");
 const restartBtn = document.getElementById("restartBtn");
+const exitHomebtn = document.getElementById("exitHomeBtn");
 const messageBox = document.getElementById("messageBox");
 //times up modal ---------
 const modal = document.getElementById("timesUpModal");
@@ -18,8 +19,6 @@ const saveUserBtn = document.getElementById("saveUserBtn");
 const closebtn = document.getElementById("exitprofilebtn");
 const welcomeMessage = document.getElementById("welcomeMessage");
 const playerAvatar = document.getElementById("playerAvatar");
-const leaderboardModal = document.getElementById("leaderboardModal");
-const leaderboardList = document.getElementById("leaderboardList");
 
 let itemOne = (itemTwo = "");
 let matcheditem = 0;
@@ -145,7 +144,7 @@ const showWinModal = () => {
   if (timeUsed < key) {
     document.getElementById(
       "timesup"
-    ).innerText = `new Best Time is: ${timeUsed}s`;
+    ).innerText = `New Best Time: ${timeUsed}s`;
   } else {
     document.getElementById("timesup").innerText = `Time: ${timeUsed}s`;
   }
@@ -162,7 +161,7 @@ const launchConfetti = () => {
 };
 
 const flipedItem = (e) => {
-  console.log(e.target);
+  // console.log(e.target);
   let clickeditem = e.target;
   if (clickeditem !== itemOne && !Blockitem && gameStarted) {
     clickeditem.classList.add("flipped");
@@ -184,10 +183,8 @@ const checkItems = (img1, img2) => {
       clearInterval(timer); // stop the timer
       gameStarted = false;
       let timeUsed = 60 - timeLeft;
+      showWinModal();
       updateBestTime(timeUsed);
-      setTimeout(() => {
-        showWinModal(); // show win modal
-      }, 800);
     }
 
     itemOne.removeEventListener("click", flipedItem);
@@ -235,7 +232,9 @@ const shuffleItems = () => {
 const startTimer = () => {
   timeTag.innerText = timeLeft;
   timer = setInterval(() => {
-    timeLeft--;
+    if (gameStarted) {
+      timeLeft--;
+    }
     timeTag.innerText = timeLeft;
 
     if (timeLeft === 0) {
@@ -262,19 +261,31 @@ const showMessage = (msg, color = "red") => {
 // Event listeners
 startBtn.addEventListener("click", () => {
   let listItems = document.getElementById("gameicons");
+  let controls = document.getElementById("controlsid");
   listItems.classList.remove("dnone");
   startBtn.style.display = "none";
+  exitHomebtn.style.display = "block";
+  restartBtn.style.display = "block";
+
   setTimeout(() => {
     listItems.classList.add("show");
+    controls.classList.add("ani");
   }, 10);
   shuffleItems();
 });
 
-exitBtn.addEventListener("click", () => {
-  // winModal.style.display = "none";
+exitHomebtn.addEventListener("click", () => {
+  let exitgame = document.getElementById("ExitGame");
+  let closecontainer = document.getElementById("containerid");
+  gameStarted = false;
+  closecontainer.classList.add("dnone");
+  exitgame.classList.remove("dnone");
+});
+//
 
-  // You can add more logic here, like going to homepage or showing a message
-  document.querySelector("html").style.display = "none";
+exitBtn.addEventListener("click", () => {
+  winModal.style.display = "none";
+  shuffleItems();
 });
 
 winReplayBtn.addEventListener("click", () => {
