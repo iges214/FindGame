@@ -286,6 +286,7 @@ exitHomebtn.addEventListener("click", () => {
 exitBtn.addEventListener("click", () => {
   winModal.style.display = "none";
   shuffleItems();
+  gameStarted = false;
 });
 
 winReplayBtn.addEventListener("click", () => {
