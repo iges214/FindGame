@@ -42,7 +42,9 @@ avatarOptions.forEach((avatar) => {
 // Saving User Info from user input form/modal
 saveUserBtn.addEventListener("click", () => {
   const username = usernameInput.value.trim();
-  if (!username || !selectedAvatar) return alert("Fill out all fields");
+  if (!username || !selectedAvatar)
+    return (document.getElementById("alert").style.display = "block");
+
   localStorage.setItem("username", username);
   localStorage.setItem("avatar", selectedAvatar);
   setWelcome(username, selectedAvatar);
@@ -53,10 +55,7 @@ closebtn.addEventListener("click", () => {
 });
 
 function setWelcome(name, avatar) {
-  document.getElementById(
-    "welcomeMessage"
-  ).innerText = `Welcome back, ${name}!`;
-  // playerAvatar.src = localStorage.getItem("avatar");
+  document.getElementById("welcomeMessage").innerText = `Hello, ${name}!`;
   playerAvatar.src = avatar;
 }
 
@@ -66,30 +65,28 @@ window.addEventListener("DOMContentLoaded", () => {
   const avatar = localStorage.getItem("avatar");
   if (!name || !avatar) {
     userSetupModal.style.display = "flex";
+    closebtn.style.display = "none";
   } else {
     setWelcome(name, avatar);
   }
 });
 
 // On page load or when showing username input form, check username
-const savedUsername = localStorage.getItem("username");
-const savedAvatar = localStorage.getItem("avatar");
-if (savedUsername && savedAvatar) {
-  document.getElementById(
-    "welcomeMessage"
-  ).innerText = `Welcome back, ${savedUsername}!`;
-  showBestTime();
-} else {
-  userSetupModal.style.display = "block";
-}
+// const savedUsername = localStorage.getItem("username");
+// const savedAvatar = localStorage.getItem("avatar");
+// if (savedUsername && savedAvatar) {
+//   document.getElementById(
+//     "welcomeMessage"
+//   ).innerText = `Welcome back, ${savedUsername}!`;
+//   showBestTime();
+// } else {
+//   userSetupModal.style.display = "block";
+// }
 
 // Change User
 document.getElementById("changeUserBtn").addEventListener("click", () => {
   userSetupModal.style.display = "flex";
 });
-
-// Track Best Time
-// let bestTime = localStorage.getItem("bestTime") || null;
 
 // Helper to get best time key for current user
 function getBestTimeKey(username) {
@@ -107,7 +104,7 @@ function showBestTime() {
   if (bestTime) {
     document.getElementById(
       "bestTimeDisplay"
-    ).innerText = `Best time: ${bestTime} seconds`;
+    ).innerText = `Best time: ${bestTime}s`;
   } else {
     document.getElementById("bestTimeDisplay").innerText = "Best time: N/A";
   }
@@ -123,7 +120,6 @@ function updateBestTime(secondsUsed) {
   if (!prevBest || secondsUsed < prevBest) {
     localStorage.setItem(key, secondsUsed);
     showBestTime(); // update display immediately
-    alert(`Congrats ${username}! New best time: ${secondsUsed} seconds!`);
   }
 }
 
@@ -143,6 +139,16 @@ modalRestartBtn.addEventListener("click", () => {
 // you win modal function---
 const showWinModal = () => {
   winModal.style.display = "flex";
+  let timeUsed = 60 - timeLeft;
+  let username = localStorage.getItem("username");
+  let key = localStorage.getItem(`bestTime_${username}`);
+  if (timeUsed < key) {
+    document.getElementById(
+      "timesup"
+    ).innerText = `new Best Time is: ${timeUsed}s`;
+  } else {
+    document.getElementById("timesup").innerText = `Time: ${timeUsed}s`;
+  }
   launchConfetti();
 };
 
