@@ -23,7 +23,7 @@ const playerAvatar = document.getElementById("playerAvatar");
 let itemOne = (itemTwo = "");
 let matcheditem = 0;
 let Blockitem = false;
-let timeLeft = 60;
+let timeLeft = 30;
 let timer;
 let gameStarted = false;
 
@@ -138,7 +138,7 @@ modalRestartBtn.addEventListener("click", () => {
 // you win modal function---
 const showWinModal = () => {
   winModal.style.display = "flex";
-  let timeUsed = 60 - timeLeft;
+  let timeUsed = 30 - timeLeft;
   let username = localStorage.getItem("username");
   let key = localStorage.getItem(`bestTime_${username}`);
   if (timeUsed < key) {
@@ -182,7 +182,7 @@ const checkItems = (img1, img2) => {
     if (matcheditem === 8) {
       clearInterval(timer); // stop the timer
       gameStarted = false;
-      let timeUsed = 60 - timeLeft;
+      let timeUsed = 30 - timeLeft;
       showWinModal();
       updateBestTime(timeUsed);
     }
@@ -202,7 +202,7 @@ const checkItems = (img1, img2) => {
       itemTwo.classList.remove("shake", "flipped");
       itemOne = itemTwo = "";
       Blockitem = false;
-    }, 1200);
+    }, 800);
   }
 };
 
@@ -211,7 +211,7 @@ const shuffleItems = () => {
   itemOne = itemTwo = "";
   Blockitem = false;
   gameStarted = true;
-  timeLeft = 60;
+  timeLeft = 30;
   clearInterval(timer);
   timeTag.innerText = timeLeft;
   showMessage(""); // clear message
